@@ -4,7 +4,7 @@
 
 ## English
 
-The backend of a personal-use app I made so I can add random useful things I'd like to keep track of in a single place. You can find the frontend here: Ponce.PersonalDashboard.Web (add repo link). Security is handled by my identity provider, which you can check out here: Ponce.IdentityProvider (add repo link).
+The backend of a personal-use app I made so I can add random useful things I'd like to keep track of in a single place. You can find the frontend here: [Ponce.PersonalDashboard.Web](https://github.com/Martin-Ponce/Ponce.PersonalDashboard.Web.git). Security is handled by my identity provider, which you can check out here: [Ponce.IdentityProvider](https://github.com/Martin-Ponce/Ponce.IdentityProvider.git).
 
 This API also uses my template, which you can find here: Ponce.Templates.APITemplate (add repo link).
 
@@ -70,8 +70,8 @@ Each guide goes through it step by step with the actual code.
 ## Español
 
 El backend de una app de uso personal que hice para ir agregando cosas útiles de las que quiero llevar un
-registro en un solo lugar. El frontend lo encuentras aquí: Ponce.PersonalDashboard.Web (add repo link). La seguridad la maneja
-mi proveedor de identidad, que puedes ver aquí: Ponce.IdentityProvider (add repo link).
+registro en un solo lugar. El frontend lo encuentras aquí: [Ponce.PersonalDashboard.Web](https://github.com/Martin-Ponce/Ponce.PersonalDashboard.Web.git). La seguridad la maneja
+mi proveedor de identidad, que puedes ver aquí: [Ponce.IdentityProvider](https://github.com/Martin-Ponce/Ponce.IdentityProvider.git).
 
 Esta API también usa mi plantilla, que está aquí: Ponce.Templates.APITemplate (add repo link).
 
