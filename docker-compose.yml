@@ -1,0 +1,47 @@
+# The API plus its own SQL Server; the identity provider and web app run separately.
+# Copy .env.example to .env, set MSSQL_SA_PASSWORD, then: docker compose up -d --build
+name: personal-dashboard
+
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: Developer
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?set MSSQL_SA_PASSWORD in .env (copy .env.example)}
+    volumes:
+      - db-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -C -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -Q \"SELECT 1\" -b -o /dev/null"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+    restart: unless-stopped
+
+  api:
+    image: ponce-personal-dashboard-api:latest
+    build:
+      context: .
+      dockerfile: Ponce.PersonalDashboard.Core.API/Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${API_PORT:-5010}:8080"
+    environment:
+      DATABASE_DATABASE_PROVIDER: SqlServer
+      # SQL auth, since a Linux container can't do Windows auth
+      DATABASE_CONNECTION_STRING: "Server=db;Initial Catalog=PersonalDashboard;User Id=sa;Password=${MSSQL_SA_PASSWORD};Encrypt=False;TrustServerCertificate=True"
+      # Tokens are issued by localhost, but inside the container localhost is the container itself
+      AUTH_AUTHORITY: ${AUTH_AUTHORITY:-http://localhost:5008/}
+      AUTH_INTERNAL_AUTHORITY: ${AUTH_INTERNAL_AUTHORITY:-http://host.docker.internal:5008/}
+      AUTH_REQUIRE_HTTPS_METADATA: ${AUTH_REQUIRE_HTTPS_METADATA:-false}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:4200,http://localhost:8080}
+    extra_hosts:
+      # Makes host.docker.internal work on Linux too
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped
+
+volumes:
+  db-data:

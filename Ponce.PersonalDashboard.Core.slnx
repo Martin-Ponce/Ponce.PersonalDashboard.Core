@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Ponce.PersonalDashboard.Core.API/Ponce.PersonalDashboard.Core.API.csproj" />
+  <Project Path="Ponce.PersonalDashboard.Core.Application/Ponce.PersonalDashboard.Core.Application.csproj" />
+  <Project Path="Ponce.PersonalDashboard.Core.Domain/Ponce.PersonalDashboard.Core.Domain.csproj" />
+  <Project Path="Ponce.PersonalDashboard.Core.Infrastructure/Ponce.PersonalDashboard.Core.Infrastructure.csproj" />
+</Solution>

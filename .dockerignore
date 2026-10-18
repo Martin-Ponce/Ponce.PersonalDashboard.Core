@@ -1,0 +1,100 @@
+# Build output, IDE and tooling
+**/.classpath
+**/.dockerignore
+**/.git
+**/.gitignore
+**/.project
+**/.settings
+**/.toolstarget
+**/.vs
+**/*.*proj.user
+**/*.user
+**/*.dbmdl
+**/*.jfm
+**/azds.yaml
+**/bin
+**/obj
+**/charts
+**/docker-compose*
+**/Dockerfile*
+**/node_modules
+**/TestResults
+**/values.dev.yaml
+LICENSE
+README.md
+docs
+
+# Logs
+**/Logs
+**/*.log
+
+# Environment files
+**/.env
+**/.env.*
+**/*.env
+
+# Local and environment-specific app settings
+**/appsettings.Local.json
+**/appsettings.*.Local.json
+**/appsettings.Production.json
+**/appsettings.Staging.json
+**/secrets.json
+**/secrets.*.json
+**/secrets.*.yaml
+
+# Keys and certificates
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.crt
+**/*.cer
+**/*.der
+**/*.jks
+**/*.keystore
+**/*.ppk
+**/*.snk
+**/id_rsa*
+**/id_ed25519*
+**/certs
+
+# Cloud and tool credentials
+**/credentials.json
+**/*.azureauth
+**/.aws
+**/.azure
+**/http-client.private.env.json
+**/*.private.env.json
+
+# Local databases, backups and dumps
+**/*.db
+**/*.db-shm
+**/*.db-wal
+**/*.sqlite*
+**/*.mdf
+**/*.ldf
+**/*.ndf
+**/*.bak
+**/*.bacpac
+**/*.dump
+
+# AI assistant / Claude Code files
+**/.claude
+**/CLAUDE.md
+**/CLAUDE.local.md
+**/.mcp.json
+
+# Editors and OS
+**/.idea
+**/.vscode
+**/*.swp
+**/.DS_Store
+**/desktop.ini
+**/$RECYCLE.BIN
+
+# Git metadata kept for SourceLink
+!**/.gitignore
+!.git/HEAD
+!.git/config
+!.git/packed-refs
+!.git/refs/heads/**
